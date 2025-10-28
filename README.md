@@ -1,11 +1,16 @@
 # generate-using-agent
 
-A simple Flask API that provides an endpoint for generating random strings.
+A simple Spring Boot REST API that provides an endpoint for generating random strings.
 
 ## Features
 
 - **Home Endpoint** (`/`): Returns information about available endpoints
 - **Random String Endpoint** (`/random-string`): Returns a randomly generated string
+
+## Prerequisites
+
+- Java 17 or higher
+- Maven 3.6 or higher
 
 ## Installation
 
@@ -15,28 +20,26 @@ git clone https://github.com/ATretinnikov/generate-using-agent.git
 cd generate-using-agent
 ```
 
-2. Install dependencies:
+2. Build the project:
 ```bash
-pip install -r requirements.txt
+mvn clean install
 ```
 
 ## Usage
 
 ### Running the Application
 
-Start the Flask server:
+Start the Spring Boot server:
 ```bash
-python app.py
+mvn spring-boot:run
 ```
 
 The server will run on `http://localhost:5000`
 
-For development with debug mode enabled:
+Alternatively, run the JAR file:
 ```bash
-FLASK_DEBUG=true python app.py
+java -jar target/random-string-api-1.0.0.jar
 ```
-
-**Note:** Debug mode should never be enabled in production environments.
 
 ### API Endpoints
 
@@ -69,9 +72,9 @@ Response:
 
 ## Testing
 
-Run tests using pytest:
+Run tests using Maven:
 ```bash
-pytest test_app.py
+mvn test
 ```
 
 ## Development
