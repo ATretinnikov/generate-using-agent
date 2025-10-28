@@ -31,6 +31,13 @@ python app.py
 
 The server will run on `http://localhost:5000`
 
+For development with debug mode enabled:
+```bash
+FLASK_DEBUG=true python app.py
+```
+
+**Note:** Debug mode should never be enabled in production environments.
+
 ### API Endpoints
 
 #### Home
