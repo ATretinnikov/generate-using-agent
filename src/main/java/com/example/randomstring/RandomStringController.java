@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * REST controller providing endpoints for the Random String API.
@@ -15,7 +15,7 @@ public class RandomStringController {
 
     private static final int DEFAULT_LENGTH = 10;
     private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    private final Random random = new Random();
+    private static final int CHARACTERS_LENGTH = CHARACTERS.length();
 
     /**
      * Home endpoint that returns information about available endpoints.
@@ -55,7 +55,7 @@ public class RandomStringController {
     private String generateRandomString(int length) {
         StringBuilder sb = new StringBuilder(length);
         for (int i = 0; i < length; i++) {
-            int index = random.nextInt(CHARACTERS.length());
+            int index = ThreadLocalRandom.current().nextInt(CHARACTERS_LENGTH);
             sb.append(CHARACTERS.charAt(index));
         }
         return sb.toString();
